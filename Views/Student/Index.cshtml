@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVC_CRUD.Models.student>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @Html.ActionLink("ADD Student","Create")
+        <hr />
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Roll no.</th>
+                    <th>Student name</th>
+                    <th>English</th>
+                    <th>Math</th>
+                    <th>Science</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.rno</td>
+                    <td>@item.name</td>
+                    <td>@item.english</td>
+                    <td>@item.math</td>
+                    <td>@item.science</td>
+                    <td>
+                        @Html.ActionLink("Edit", "EDIT", new { @id = item.rno })
+                        &nbsp;
+                        @Html.ActionLink("Delete", "Delete", new { @id = item.rno })
+
+
+
+                    </td>
+                   
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
